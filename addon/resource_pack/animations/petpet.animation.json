@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.beatpet.petpet": {
+      "loop": false,
+      "bones": {
+        "root": {
+          "scale": {
+            "0.0": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "0.1": [
+              1.0,
+              0.7,
+              1.0
+            ],
+            "0.2": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

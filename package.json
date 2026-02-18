@@ -1,0 +1,6 @@
+{
+  "name": "beatpet",
+  "workspaces": [
+    "./addon"
+  ]
+}

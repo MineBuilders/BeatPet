@@ -1,0 +1,31 @@
+{
+  "format_version": 3,
+  "header": {
+    "name": "pack.name",
+    "description": "pack.description",
+    "uuid": "9ea170d9-e78a-4703-b195-6f2e606a022f",
+    "version": "1.0.0",
+    "min_engine_version": "1.21.114"
+  },
+  "metadata": {
+    "authors": [
+      "Cdm2883"
+    ],
+    "product_type": "addon"
+  },
+  "modules": [
+    {
+      "uuid": "d9dba884-3337-4920-8a62-d31949a0883d",
+      "version": "1.0.0",
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "beta"
+    }
+  ]
+}
