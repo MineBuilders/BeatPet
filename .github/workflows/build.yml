@@ -1,0 +1,36 @@
+name: Build Project
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+
+      - name: Build with Script
+        run: |
+          chmod +x ./scripts/build.ps1
+          chmod +x ./gradlew
+          pwsh ./scripts/build.ps1
+
+      - name: Setup Artifact Client
+        uses: lhotari/gh-actions-artifact-client@v2
+
+      - name: Upload Artifacts
+        shell: bash
+        run: |
+          file_hash=$(git rev-parse --short HEAD)
+          find "dist" -maxdepth 1 -type f | while read -r file; do
+            full_name=$(basename "$file")
+            artifact_name="${full_name%.*}-${file_hash}"
+            echo "Uploading: $full_name"
+            zip -q -j - "$file" | gh-actions-artifact-client.js upload "${artifact_name}"
+          done

@@ -23,7 +23,10 @@ val includeResourcePack by tasks.registering(Copy::class) {
     into(distDir)
     @Suppress("UNCHECKED_CAST") doLast {
         val manifestFile = distDir.get().file("manifest.json").asFile
-        val manifest = JsonSlurper().parse(manifestFile) as MutableMap<String, Any?>
+        val manifestData = manifestFile.readText()
+            .replace("999.999.999", version.toString())
+            .toByteArray()
+        val manifest = JsonSlurper().parse(manifestData) as MutableMap<String, Any?>
         val header = manifest["header"] as MutableMap<String, Any?>
         val modules = manifest["modules"] as List<MutableMap<String, Any?>>
         fun Any?.toVersionList() = toString().split(".").map(String::toInt)
@@ -38,4 +41,11 @@ val includeResourcePack by tasks.registering(Copy::class) {
 
 tasks.named("processResources") {
     dependsOn(includeResourcePack)
+}
+
+afterEvaluate {
+    tasks.named<Jar>("shadowJar") {
+        archiveBaseName = "beatpet-allay"
+        archiveClassifier = ""
+    }
 }

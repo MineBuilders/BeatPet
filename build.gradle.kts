@@ -1,4 +1,4 @@
-import org.gradle.internal.os.OperatingSystem
+import groovy.json.JsonSlurper
 
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
@@ -9,7 +9,8 @@ plugins {
 group = "io.github.minebuilders.beatpet"
 description = "A minecraft bedrock plugin that lets you pet any entity!"
 
-version = "1.0.0"
+version = file("package.json").readText()
+    .let { JsonSlurper().parseText(it) as Map<*, *> }["version"] as String
 
 subprojects {
     group = rootProject.group

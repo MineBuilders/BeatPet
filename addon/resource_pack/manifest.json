@@ -4,7 +4,7 @@
     "name": "pack.name",
     "description": "pack.description",
     "uuid": "9546b69d-ef3d-4946-b197-63a8c238d83e",
-    "version": "1.0.0",
+    "version": "999.999.999",
     "min_engine_version": "1.16.210"
   },
   "metadata": {
@@ -17,7 +17,7 @@
     {
       "type": "resources",
       "uuid": "641a941b-7e18-4afa-baa8-7df3c8b6987d",
-      "version": "1.0.0"
+      "version": "999.999.999"
     }
   ],
   "capabilities": [

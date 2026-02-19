@@ -4,7 +4,7 @@
     "name": "pack.name",
     "description": "pack.description",
     "uuid": "9ea170d9-e78a-4703-b195-6f2e606a022f",
-    "version": "1.0.0",
+    "version": "999.999.999",
     "min_engine_version": "1.21.114"
   },
   "metadata": {
@@ -16,7 +16,7 @@
   "modules": [
     {
       "uuid": "d9dba884-3337-4920-8a62-d31949a0883d",
-      "version": "1.0.0",
+      "version": "999.999.999",
       "type": "script",
       "language": "javascript",
       "entry": "scripts/main.js"
